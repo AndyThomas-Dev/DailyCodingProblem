@@ -5,4 +5,4 @@ Challenge descriptions are located at the top of code file.
 
 | Problem | Difficulty | Solution |      
 |---------|------------|----------|
-[Problem 788] | Easy | [Python](./Python/788.py) 
+788: Number Palindromes | Easy | [Python](./Python/788.py) 
