@@ -6,6 +6,9 @@ public class ReverseBits
 {
   static void Main(string[] args)
   {
+    
+    // Given a 32-bit integer, return the number with its bits reversed.
+    // Note: I took this to mean the character encoding of the binary number
 
     string output = "";
     
