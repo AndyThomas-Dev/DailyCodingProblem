@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Linq;
 
-public class Hello
+public class ReverseBits
 {
   static void Main(string[] args)
   {
@@ -13,7 +13,7 @@ public class Hello
       output += Convert.ToString(c, 2).PadLeft(8, '0');
     }
 
-    Console.WriteLine(output);
+    // Console.WriteLine(output);
 
     string reversed = "";
 
