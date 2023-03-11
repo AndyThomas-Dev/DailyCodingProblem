@@ -4,7 +4,7 @@ namespace MainProj;
 
 class Program
 {
-    // Daily Coding Problem 1318
+    // Also known as Orderly Queue problem on Leetcode
     // You are given a string of length N and a parameter k.The string can be manipulated by taking one of the first k letters and moving it to the end.
 
     // Write a program to determine the lexicographically smallest string that can be created after an unlimited number of moves.
@@ -19,19 +19,25 @@ class Program
             string result = MutateString("daily", 1);
             Assert.That(result == "ailyd");
 
-            result = MutateString("dailyyz", 1);
-            Assert.That(result == "ailyyzd");
+            result = MutateString("cba", 1);
+            Assert.That(result == "acb");
 
-            result = MutateString("daily", 2);
-            Assert.That(result == "ilyad");
+            result = MutateString("accde", 1);
+            Assert.That(result == "accde");
+
+            result = MutateString("ccdea", 1);
+            Assert.That(result == "accde");
 
             result = MutateString("zzzzzzA", 6);
             Assert.That(result == "Azzzzzz");
 
             result = MutateString("zzazzzA", 6);
             Assert.That(result == "Aazzzzz");
+
+            result = MutateString("zzazzzA", 4);
+            Assert.That(result == "Aazzzzz");
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             throw;
         }
@@ -41,11 +47,28 @@ class Program
 
     private static string MutateString(string input, int k)
     {
-        var before = input[..k];
 
-        // Sort alphabetically
-        var sortedBefore = string.Concat(before.OrderBy(c => c));
+        if(k == 1)
+        {
+            String result = input;
 
-        return input.Substring(k) + sortedBefore;
+            for (int i = 0; i < input.Length; ++i)
+            {
+                String temp = input.Substring(i) + input.Substring(0, i);
+
+                if (temp.CompareTo(result) < 0)
+                {
+                    result = temp;
+                }
+            }
+
+            return result;
+        }
+        // When k > 1, the answer is input written in lexicographic order.
+        else
+        {
+            return new string(input.OrderBy(c => c).ToArray());
+        }
+
     }
 }
