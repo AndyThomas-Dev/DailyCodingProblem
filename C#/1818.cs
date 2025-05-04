@@ -63,7 +63,7 @@ public class ClockHands
     }
 
 
-    // Divide & Conquer / Merge Sort
+    // Divide & Conquer
     // O(n log n)
     private static List<(int, int)> ClosestPair(List<(int, int)> xSorted, List<(int, int)> ySorted)
     {
